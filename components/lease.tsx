@@ -22,14 +22,33 @@ export function Lease() {
     area: "",
   })
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitted(true)
-    setTimeout(() => {
-      setIsSubmitted(false)
-      setFormData({ name: "", phone: "", area: "" })
-    }, 3000)
+  const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault(); // чтобы форма не перезагружала страницу
+
+  try {
+    const response = await fetch("/api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+
+    const result = await response.json();
+
+    if (result.status === "success") {
+      setIsSubmitted(true);
+      setTimeout(() => {
+        setIsSubmitted(false);
+        setFormData({ name: "", phone: "", area: "" });
+      }, 3000);
+    } else {
+      alert("Ошибка при отправке формы: " + result.message);
+    }
+  } catch (error) {
+    alert("Ошибка при отправке формы: " + error);
   }
+};
 
   return (
     <section id="lease" className="relative bg-muted py-20 md:py-32">

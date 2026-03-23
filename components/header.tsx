@@ -68,7 +68,7 @@ export function Header() {
                 className="flex items-center gap-2 text-sm font-medium text-foreground transition-colors hover:text-primary"
               >
                 <Phone className="h-4 w-4" />
-                <span>+7 (347) 123-45-67</span>
+                <span>+7 (347) 256-48-63</span>
               </a>
               <Button asChild>
                 <a href="#lease">Стать арендатором</a>
@@ -131,7 +131,7 @@ export function Header() {
                   className="flex items-center gap-2 text-foreground"
                 >
                   <Phone className="h-5 w-5 text-primary" />
-                  <span>+7 (347) 123-45-67</span>
+                  <span>+7 (347) 256-48-63</span>
                 </a>
                 <Button className="w-full" asChild>
                   <a href="#lease" onClick={() => setIsMobileMenuOpen(false)}>

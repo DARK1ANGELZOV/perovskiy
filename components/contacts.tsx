@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 import { MapPin, Clock, Phone, Bus, Car } from "lucide-react"
 
 const transportRoutes = [
-  { icon: stop, label: "Остановка:", value: "Улица Степана Кувыкина" },
+  { icon: Bus, label: "Остановка:", value: "Улица Степана Кувыкина" },
   { icon: Bus, label: "Автобусы", value: "31, 110С, 234, 224" },
   { icon: Car, label: "На авто", value: "Бесплатная парковка" },
 ]
@@ -95,7 +95,7 @@ export function Contacts() {
           {/* Footer */}
           <div className="border-t border-border p-4">
             <a
-              href="https://yandex.ru/maps/-/CPuWQPmH"
+              href="https://yandex.ru/map-widget/v1/?um=constructor%3A159c71d05c31fa73ca368d38024103e0ba6a89bd1ad19432074b3466f0554448&amp;source=constructo"
               target="_blank"
               rel="noopener noreferrer"
               className="flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-4 py-3 font-medium text-primary-foreground transition-colors hover:bg-primary/90"

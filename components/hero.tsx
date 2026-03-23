@@ -8,7 +8,7 @@ const features = [
   {
     icon: ParkingCircle,
     title: "Бесплатная парковка",
-    description: "200+ мест для посетителей",
+    description: "50+ мест для посетителей",
   },
   {
     icon: Store,
@@ -18,7 +18,7 @@ const features = [
   {
     icon: MapPin,
     title: "Удобный доступ",
-    description: "Рядом с метро и остановками",
+    description: "Рядом с остановкой",
   },
 ]
 
