@@ -4,25 +4,26 @@ import { AnimatePresence, motion } from "framer-motion"
 import { useState } from "react"
 
 import { Button } from "@/components/ui/button"
+import { withBasePath } from "@/lib/site"
 import { cn } from "@/lib/utils"
 
 const FLOOR_PLANS = [
   {
     id: "-1",
     buttonLabel: "-1 этаж",
-    imageSrc: "/images/floor1.jpg",
+    imageSrc: withBasePath("/images/floor1.jpg"),
     imageAlt: "План -1 этажа ТСК Перовский",
   },
   {
     id: "1",
     buttonLabel: "1 этаж",
-    imageSrc: "/images/floor2.jpg",
+    imageSrc: withBasePath("/images/floor2.jpg"),
     imageAlt: "План 1 этажа ТСК Перовский",
   },
   {
     id: "2",
     buttonLabel: "2 этаж",
-    imageSrc: "/images/floor3.jpg",
+    imageSrc: withBasePath("/images/floor3.jpg"),
     imageAlt: "План 2 этажа ТСК Перовский",
   },
 ] as const

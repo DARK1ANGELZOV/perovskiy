@@ -3,9 +3,11 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { Building2, SquareStack, Send, Check, Ruler, Tag } from "lucide-react"
+
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { CONTACT_ENDPOINT } from "@/lib/site"
 
 const availableSpaces = [
   { id: 1, floor: "Этаж 1", size: "25 м²", price: "от 35 000 ₽/мес", type: "Торговое" },
@@ -16,6 +18,8 @@ const availableSpaces = [
 
 export function Lease() {
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState("")
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -23,37 +27,44 @@ export function Lease() {
   })
 
   const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault(); // чтобы форма не перезагружала страницу
+    e.preventDefault()
+    setSubmitError("")
+    setIsSubmitting(true)
 
-  try {
-    const response = await fetch("/api/contact", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    });
+    try {
+      const response = await fetch(CONTACT_ENDPOINT, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "text/plain;charset=UTF-8",
+        },
+        body: JSON.stringify({
+          ...formData,
+          area: formData.area || "",
+          timestamp: new Date().toISOString(),
+        }),
+      })
 
-    const result = await response.json();
+      if (response.type !== "opaque" && !response.ok) {
+        throw new Error(`HTTP ${response.status}`)
+      }
 
-    if (result.status === "success") {
-      setIsSubmitted(true);
-      setTimeout(() => {
-        setIsSubmitted(false);
-        setFormData({ name: "", phone: "", area: "" });
-      }, 3000);
-    } else {
-      alert("Ошибка при отправке формы: " + result.message);
+      setIsSubmitted(true)
+      setFormData({ name: "", phone: "", area: "" })
+      window.setTimeout(() => {
+        setIsSubmitted(false)
+      }, 3000)
+    } catch (error) {
+      console.error("Ошибка при отправке заявки:", error)
+      setSubmitError("Не удалось отправить заявку. Попробуйте еще раз или позвоните нам.")
+    } finally {
+      setIsSubmitting(false)
     }
-  } catch (error) {
-    alert("Ошибка при отправке формы: " + error);
   }
-};
 
   return (
     <section id="lease" className="relative bg-muted py-20 md:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -65,12 +76,11 @@ export function Lease() {
             Аренда <span className="text-primary">недвижимости</span>
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Коммерческие помещения для вашего бизнеса в проходимом месте
+            Коммерческие помещения для вашего бизнеса в проходном месте
           </p>
         </motion.div>
 
         <div className="grid gap-8 lg:grid-cols-2">
-          {/* Available Spaces */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -115,7 +125,6 @@ export function Lease() {
               ))}
             </div>
 
-            {/* Ad Slot */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -132,7 +141,6 @@ export function Lease() {
             </motion.div>
           </motion.div>
 
-          {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -192,9 +200,17 @@ export function Lease() {
                     onChange={(e) => setFormData({ ...formData, area: e.target.value })}
                   />
                 </div>
-                <Button type="submit" size="lg" className="w-full">
-                  Отправить заявку
+                <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
+                  {isSubmitting ? "Отправляем..." : "Отправить заявку"}
                 </Button>
+                {submitError ? (
+                  <p
+                    className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700"
+                    role="alert"
+                  >
+                    {submitError}
+                  </p>
+                ) : null}
                 <p className="text-center text-xs text-muted-foreground">
                   Нажимая кнопку, вы соглашаетесь с политикой обработки персональных данных
                 </p>
