@@ -32,21 +32,33 @@ export function Lease() {
     setIsSubmitting(true)
 
     try {
-      const response = await fetch(CONTACT_ENDPOINT, {
-        method: "POST",
-        mode: "no-cors",
-        headers: {
-          "Content-Type": "text/plain;charset=UTF-8",
-        },
-        body: JSON.stringify({
-          ...formData,
-          area: formData.area || "",
-          timestamp: new Date().toISOString(),
-        }),
+      const payload = JSON.stringify({
+        ...formData,
+        area: formData.area || "",
+        timestamp: new Date().toISOString(),
       })
 
-      if (response.type !== "opaque" && !response.ok) {
-        throw new Error(`HTTP ${response.status}`)
+      const beaconPayload = new Blob([payload], {
+        type: "text/plain;charset=UTF-8",
+      })
+
+      let isQueued = false
+
+      if (typeof navigator !== "undefined" && typeof navigator.sendBeacon === "function") {
+        isQueued = navigator.sendBeacon(CONTACT_ENDPOINT, beaconPayload)
+      }
+
+      if (!isQueued) {
+        void fetch(CONTACT_ENDPOINT, {
+          method: "POST",
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "text/plain;charset=UTF-8",
+          },
+          body: payload,
+        }).catch((error) => {
+          console.error("Ошибка при отправке заявки:", error)
+        })
       }
 
       setIsSubmitted(true)
