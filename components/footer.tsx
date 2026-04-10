@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { BrandLogo } from "@/components/brand-logo"
 
 const currentYear = new Date().getFullYear()
 
@@ -15,14 +16,9 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
           {/* Logo */}
-          <div className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
-              <span className="text-sm font-bold text-primary-foreground">П</span>
-            </div>
-            <span className="text-sm font-medium text-foreground">
-              ТСК <span className="text-primary">Перовский</span>
-            </span>
-          </div>
+          <a href="#" aria-label="ТСК Перовский" className="flex items-center">
+            <BrandLogo size="footer" />
+          </a>
 
           {/* Links */}
           <nav className="flex flex-wrap justify-center gap-6">

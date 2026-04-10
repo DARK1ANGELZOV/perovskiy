@@ -8,7 +8,7 @@ const features = [
   {
     icon: ParkingCircle,
     title: "Бесплатная парковка",
-    description: "50+ мест для посетителей",
+    description: "35+ мест для посетителей",
   },
   {
     icon: Store,
@@ -43,7 +43,7 @@ export function Hero() {
           >
             <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">
               <span className="h-2 w-2 rounded-full bg-primary animate-pulse" />
-              Открыты ежедневно с 10:00 до 21:00
+              Открыты ежедневно с 09:00 до 21:00
             </span>
           </motion.div>
 

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Phone, Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { BrandLogo } from "@/components/brand-logo"
 
 const navItems = [
   { label: "Этажи", href: "#floors" },
@@ -38,14 +39,8 @@ export function Header() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between md:h-20">
             {/* Logo */}
-            <a href="#" className="flex items-center gap-2">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary">
-                <span className="text-lg font-bold text-primary-foreground">П</span>
-              </div>
-              <div className="hidden sm:block">
-                <span className="text-lg font-semibold text-foreground">ТСК</span>
-                <span className="ml-1 text-lg font-semibold text-primary">Перовский</span>
-              </div>
+            <a href="#" aria-label="ТСК Перовский" className="flex items-center">
+              <BrandLogo size="header" priority />
             </a>
 
             {/* Desktop Navigation */}

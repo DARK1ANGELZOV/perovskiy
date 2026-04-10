@@ -1,13 +1,13 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Wifi, ShieldCheck, Coffee, Navigation, Users, Calendar, Clock, Car } from "lucide-react"
+import { Building2, ShieldCheck, Coffee, Navigation, Users, Calendar, Clock, Car } from "lucide-react"
 
 const bentoItems = [
   {
-    icon: Wifi,
-    title: "Бесплатный Wi-Fi",
-    description: "Высокоскоростной интернет по всему комплексу",
+    icon: Building2,
+    title: "Администрация ТСК",
+    description: "Заботимся о вашем комфорте и решаем вопросы каждый день",
     className: "md:col-span-1",
   },
   {

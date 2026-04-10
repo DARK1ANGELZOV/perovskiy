@@ -10,10 +10,9 @@ import { Label } from "@/components/ui/label"
 import { CONTACT_ENDPOINT } from "@/lib/site"
 
 const availableSpaces = [
-  { id: 1, floor: "Этаж 1", size: "25 м²", price: "от 35 000 ₽/мес", type: "Торговое" },
-  { id: 2, floor: "Этаж 2", size: "40 м²", price: "от 50 000 ₽/мес", type: "Торговое" },
-  { id: 3, floor: "Этаж 2", size: "15 м²", price: "от 22 000 ₽/мес", type: "Офисное" },
-  { id: 4, floor: "Этаж -1", size: "60 м²", price: "от 70 000 ₽/мес", type: "Складское" },
+  { id: 1, floor: "Этаж -1", size: "От 9 м² до 160 м²", type: "Торговое" },
+  { id: 2, floor: "Этаж 1", size: "9 м²", type: "Торговое" },
+  { id: 3, floor: "Этаж 2", size: "2 м²", type: "Киоски" },
 ]
 
 export function Lease() {

@@ -11,8 +11,9 @@ const transportRoutes = [
 
 const contacts = [
   { icon: MapPin, label: "Адрес", value: "г. Уфа, ул. Софьи Перовской, 17/1" },
-  { icon: Clock, label: "Режим работы", value: "Ежедневно с 10:00 до 21:00" },
-  { icon: Phone, label: "Телефон", value: "+7 (347) 123-45-67", href: "tel:+73471234567" },
+  { icon: Clock, label: "Режим работы", value: "Ежедневно с 09:00 до 21:00" },
+  { icon: Phone, label: "Телефон N", value: "+7 (347) 256-48-63", href: "tel:+73472564863"},
+  { icon: Phone, label: "Телефон N", value: "+7 (937) 839-99-72", href: "tel:+79378399972"},
 ]
 
 export function Contacts() {
