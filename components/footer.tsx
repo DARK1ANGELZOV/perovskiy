@@ -22,16 +22,16 @@ export function Footer() {
 
           {/* Links */}
           <nav className="flex flex-wrap justify-center gap-6">
-            <a href="#floors" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+            <a href="#floors" className="text-sm text-muted-foreground transition-colors hover:text-primary">
               Этажи
             </a>
-            <a href="#about" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+            <a href="#about" className="text-sm text-muted-foreground transition-colors hover:text-primary">
               О нас
             </a>
-            <a href="#lease" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+            <a href="#lease" className="text-sm text-muted-foreground transition-colors hover:text-primary">
               Аренда
             </a>
-            <a href="#contacts" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+            <a href="#contacts" className="text-sm text-muted-foreground transition-colors hover:text-primary">
               Контакты
             </a>
           </nav>

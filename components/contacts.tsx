@@ -99,7 +99,7 @@ export function Contacts() {
               href="https://yandex.ru/map-widget/v1/?um=constructor%3A159c71d05c31fa73ca368d38024103e0ba6a89bd1ad19432074b3466f0554448&amp;source=constructo"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-4 py-3 font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+              className="flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-4 py-3 font-medium text-primary-foreground transition-colors hover:bg-[#e67f00]"
             >
               <MapPin className="h-4 w-4" />
               Построить маршрут

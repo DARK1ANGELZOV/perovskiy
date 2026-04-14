@@ -170,8 +170,8 @@ export function Lease() {
                 animate={{ opacity: 1, scale: 1 }}
                 className="flex flex-col items-center justify-center py-12 text-center"
               >
-                <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
-                  <Check className="h-8 w-8 text-green-600" />
+                <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/15">
+                  <Check className="h-8 w-8 text-primary" />
                 </div>
                 <h4 className="text-xl font-semibold text-foreground">Заявка отправлена!</h4>
                 <p className="mt-2 text-muted-foreground">
@@ -216,7 +216,7 @@ export function Lease() {
                 </Button>
                 {submitError ? (
                   <p
-                    className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700"
+                    className="rounded-lg border border-border bg-muted px-4 py-3 text-sm text-foreground"
                     role="alert"
                   >
                     {submitError}

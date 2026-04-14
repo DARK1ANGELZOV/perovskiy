@@ -43,7 +43,7 @@ export function FloorNavigator() {
   const activePlan = FLOOR_PLANS.find((plan) => plan.id === activeFloor) ?? FLOOR_PLANS[0]
 
   return (
-    <section id="floors" className="bg-[#F5F5F5] py-10 md:py-16">
+    <section id="floors" className="bg-muted py-10 md:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-5xl">
           <h2 className="sr-only">Планы этажей</h2>
@@ -84,7 +84,7 @@ export function FloorNavigator() {
                 className="overflow-hidden rounded-[22px]"
               >
                 {failedImages[activePlan.id] ? (
-                  <div className="flex aspect-[4/3] items-center justify-center rounded-[22px] bg-gradient-to-br from-stone-100 via-white to-stone-200">
+                  <div className="flex aspect-[4/3] items-center justify-center rounded-[22px] bg-gradient-to-br from-zinc-100 via-white to-zinc-200">
                     <div className="rounded-2xl border border-border bg-white/90 px-6 py-4 text-center shadow-sm backdrop-blur">
                       <p className="text-lg font-semibold text-foreground">{activePlan.buttonLabel}</p>
                       <p className="mt-1 text-sm text-muted-foreground">{activePlan.imageSrc}</p>
